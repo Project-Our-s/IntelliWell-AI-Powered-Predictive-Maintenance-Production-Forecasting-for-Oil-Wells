@@ -195,6 +195,16 @@ and instantly view
 * Forecast Confidence
 * AI Recommendation
 
+### 📊 Power BI Dashboards
+
+| Executive | Production | Pressure |
+|------------|------------|-----------|
+| ![](screenshots/power_bi/Predictive_Maintainance_Dashboard_1.png) | ![](screenshots/power_bi/Predictive_Maintainance_Dashboard_2.png) | ![](screenshots/power_bi/Predictive_Maintainance_Dashboard_3.png) |
+
+| Well Health | Forecast | AI Simulator |
+|--------------|----------|--------------|
+| ![](screenshots/power_bi/Predictive_Maintainance_Dashboard_4.png) | ![](screenshots/power_bi/Predictive_Maintainance_Dashboard_6.png) | ![](screenshots/power_bi/Predictive_Maintainance_Dashboard_7.png) |
+
 ## 🌐 Web Application
 
 The Streamlit application provides an interactive AI interface for:
@@ -206,6 +216,16 @@ The Streamlit application provides an interactive AI interface for:
 * Exploring AI-generated predictions
 
 The backend is powered by Flask REST APIs.
+
+### 🌐 Streamlit Web Application
+
+| Home | Production Forecast |
+|------|----------------------|
+| ![](screenshots/web_app/home.png) | ![](screenshots/web_app/production_forcast.png) |
+
+| Pressure Analysis | Well Health |
+|-------------------|-------------|
+| ![](screenshots/web_app/pressure_analysis.png) | ![](screenshots/web_app/well_health.png) |
 
 ## 🗄️ Database
 
