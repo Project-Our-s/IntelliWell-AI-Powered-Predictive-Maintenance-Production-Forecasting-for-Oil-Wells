@@ -1,4 +1,4 @@
-# IntelliWell-AI-Powered-Predictive-Maintenance-Production-Forecasting-for-Oil-Wells
+# IntelliWell AI Powered Predictive Maintenance Production Forecasting for Oil Wells
 ## 📌 Overview
 
 IntelliWell is an AI-powered decision support system developed for the petroleum industry to improve well monitoring, production forecasting, and predictive maintenance.
