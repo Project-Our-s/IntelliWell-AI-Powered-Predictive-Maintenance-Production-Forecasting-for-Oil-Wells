@@ -192,6 +192,22 @@ Purpose
 
 and automatically generates maintenance recommendations.
 
+## 🔮 Future Forecasting
+
+The Future Forecast Generator extends the ML pipeline by estimating future well behavior over different forecasting horizons.
+
+The forecasting engine simulates factors such as:
+
+* Production decline
+* Pressure degradation
+* Operational variations
+
+Forecasting horizons can range from:
+
+1 → 365 Days
+
+The generated results can be used by Power BI and the IntelliWell prediction interface for future well-condition analysis.
+
 ## 📈 Power BI Dashboards
 ### 1. Executive Overview
 
