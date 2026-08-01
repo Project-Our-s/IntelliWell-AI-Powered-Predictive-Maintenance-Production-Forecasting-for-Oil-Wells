@@ -219,6 +219,37 @@ category
 
 The report_text column contains textual maintenance observations, while category represents the known maintenance issue category.
 
+## NLP Pipeline
+```
+Maintenance Reports
+        │
+        ▼
+Text Cleaning
+        │
+        ▼
+Tokenization
+        │
+        ▼
+Stopword Removal
+        │
+        ▼
+Lemmatization
+        │
+        ▼
+Text / Keyword Analysis
+        │
+        ├──────────────► Issue Category
+        │
+        ├──────────────► Keywords
+        │
+        ├──────────────► Summary
+        │
+        └──────────────► Priority
+        │
+        ▼
+NLP Maintenance Results
+```
+
 ## 📈 Power BI Dashboards
 ### 1. Executive Overview
 
