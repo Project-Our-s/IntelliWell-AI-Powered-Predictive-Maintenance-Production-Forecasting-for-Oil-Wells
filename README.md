@@ -250,6 +250,20 @@ Text / Keyword Analysis
 NLP Maintenance Results
 ```
 
+## NLP Output
+
+The NLP module produces structured information including:
+
+* Original Maintenance Report
+* Cleaned Report
+* Maintenance Category
+* Issue Category
+* Important Keywords
+* Report Summary
+* Maintenance Priority
+
+
+
 ## 📈 Power BI Dashboards
 ### 1. Executive Overview
 
