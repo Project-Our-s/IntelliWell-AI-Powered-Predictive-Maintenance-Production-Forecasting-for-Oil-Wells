@@ -372,6 +372,52 @@ PostgreSQL is used for storing:
 * Well Health Results
 * Forecast Results
 
+## 🔗 System Integration
+
+IntelliWell combines several technologies into a unified analytics workflow:
+```
+             Historical Well Data
+                      │
+                      ▼
+                  PostgreSQL
+                      │
+                      ▼
+             Machine Learning
+                      │
+       ┌──────────────┼──────────────┐
+       ▼              ▼              ▼
+ Production       Pressure       Well Health
+ Forecasting      Anomalies      Assessment
+       │              │              │
+       └──────────────┼──────────────┘
+                      ▼
+               Future Forecast
+                      │
+                      ▼
+              Decision Support
+                      │
+           ┌──────────┴──────────┐
+           ▼                     ▼
+        Power BI            Flask API
+                                 │
+                                 ▼
+                             Streamlit
+
+
+             Maintenance Reports
+                      │
+                      ▼
+                 NLP Module
+                      │
+       ┌──────────────┼──────────────┐
+       ▼              ▼              ▼
+   Category        Keywords       Summary
+                                      │
+                                      ▼
+                                   Priority
+```
+
+
  ## 📈 Future Forecasting
 
 The future forecasting engine simulates
