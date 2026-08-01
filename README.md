@@ -1,18 +1,23 @@
 # IntelliWell AI Powered Predictive Maintenance Production Forecasting for Oil Wells
 ## 📌 Overview
 
-IntelliWell is an AI-powered decision support system developed for the petroleum industry to improve well monitoring, production forecasting, and predictive maintenance.
+IntelliWell is an AI-powered decision-support system developed for the petroleum industry to improve well monitoring, production forecasting, anomaly detection, predictive maintenance, and maintenance-report analysis.
 
-The system combines Machine Learning, Business Intelligence, and Web Technologies to analyze historical well data, detect pressure anomalies, forecast future production, and provide actionable maintenance recommendations through interactive dashboards.
+The system combines Machine Learning, Natural Language Processing (NLP), Business Intelligence, Database Technologies, and Web Technologies to analyze historical well data and maintenance reports.
+
+IntelliWell can forecast future oil production, detect abnormal pressure conditions, assess overall well health, analyze textual maintenance reports, generate maintenance insights, and present results through interactive Power BI and Streamlit dashboards.
 
 ## 🎯 Objectives
 * Predict future oil production using Machine Learning.
-* Detect pressure anomalies using unsupervised learning.
-* Assess overall well health.
-* Generate AI-based maintenance recommendations.
+* Detect abnormal pressure conditions using unsupervised learning.
+* Assess overall well health and operational risk.
+* Generate maintenance recommendations based on well conditions.
+* Forecast future production and operational conditions.
+* Analyze maintenance reports using Natural Language Processing.
+* Identify maintenance issue categories, keywords, summaries, and priorities from textual reports.
 * Build interactive Business Intelligence dashboards.
 * Develop an AI prediction simulator using Flask and Streamlit.
-
+* Integrate ML, NLP, SQL, Power BI, and web technologies into a unified petroleum analytics system.
 ## 🛠️ Technology Stack
 ### Programming
 * Python
