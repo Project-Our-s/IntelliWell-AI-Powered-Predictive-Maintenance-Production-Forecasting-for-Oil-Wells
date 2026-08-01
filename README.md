@@ -82,6 +82,47 @@ IntelliWell/
 │
 └── README.md
 ```
+
+## 📊 IntelliWell Analytics Pipeline
+```
+                    IntelliWell
+                         │
+          ┌──────────────┴──────────────┐
+          │                             │
+          ▼                             ▼
+ Historical Well Data          Maintenance Reports
+          │                             │
+          ▼                             ▼
+    Data Cleaning                Text Cleaning
+          │                             │
+          ▼                             ▼
+ Feature Engineering           NLP Preprocessing
+          │                             │
+          ▼                             ▼
+   Machine Learning              NLP Analysis
+          │                             │
+    ┌─────┴─────┐                       │
+    ▼           ▼                       ▼
+Production   Pressure             Issue Category
+Forecast     Anomaly              Keywords
+            Detection             Summary
+    │           │                 Priority
+    └─────┬─────┘                       │
+          ▼                             │
+  Well Health Assessment                │
+          │                             │
+          ▼                             │
+ Future Forecast Generator              │
+          │                             │
+          └──────────────┬──────────────┘
+                         ▼
+              Decision Support Layer
+                         │
+              ┌──────────┴──────────┐
+              ▼                     ▼
+           Power BI              Streamlit
+           Dashboard             Web App
+```
 ## 📊 Machine Learning Pipeline
 ```
 Historical Well Data
