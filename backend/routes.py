@@ -1,15 +1,29 @@
 from flask import Blueprint, jsonify, request
 import pandas as pd
-
+from nlp_engine import analyze_report
+from copilot_engine import generate_copilot_answer
 from services import (
     predict_production,
     detect_pressure,
     run_pipeline
 )
+from flask import Blueprint, request, jsonify
+
+import streamlit as st
+import requests
+
 
 api = Blueprint("api", __name__)
 
+# ==========================================================
+# IntelliWell Copilot Session State
+# ==========================================================
 
+if "maintenance_analysis" not in st.session_state:
+    st.session_state.maintenance_analysis = None
+
+if "copilot_messages" not in st.session_state:
+    st.session_state.copilot_messages = []
 # ==========================================================
 # Health Check
 # ==========================================================
@@ -341,3 +355,233 @@ def dashboard_summary():
             "message": str(e)
 
         }), 500
+
+# ==========================================================
+# NLP Maintenance Report Analysis
+# ==========================================================
+
+@api.route("/analyze-report", methods=["POST"])
+def analyze_maintenance_report():
+
+    try:
+
+        data = request.get_json()
+
+        if not data:
+
+            return jsonify({
+                "error": "No JSON received."
+            }), 400
+
+        report = data.get("report", "").strip()
+
+        if not report:
+
+            return jsonify({
+                "error": "Maintenance report is empty."
+            }), 400
+
+        result = analyze_report(report)
+
+        return jsonify(result)
+        st.session_state.maintenance_analysis = result
+        st.session_state.copilot_messages = []
+    except Exception as e:
+
+        return jsonify({
+            "error": str(e)
+        }), 500
+
+@api.route(
+    "/maintenance-copilot",
+    methods=["POST"]
+)
+
+# ==========================================================
+# IntelliWell Maintenance Copilot
+# ==========================================================
+
+@api.route(
+    "/maintenance-copilot",
+    methods=["POST"]
+)
+def maintenance_copilot():
+
+    try:
+
+        data = request.get_json()
+
+        if not data:
+            return jsonify({
+                "error": "Request body is required."
+            }), 400
+
+        question = data.get(
+            "question",
+            ""
+        ).strip()
+
+        analysis = data.get(
+            "analysis"
+        )
+
+        if not question:
+            return jsonify({
+                "error": "Question is required."
+            }), 400
+
+        if not analysis:
+            return jsonify({
+                "error": "Maintenance analysis is required."
+            }), 400
+
+        answer = generate_copilot_answer(
+            question,
+            analysis
+        )
+
+        return jsonify({
+            "answer": answer
+        }), 200
+
+    except Exception as error:
+
+        return jsonify({
+            "error": str(error)
+        }), 500
+# ==========================================================
+# IntelliWell Conversational Copilot
+# ==========================================================
+
+st.divider()
+
+st.subheader("💬 Ask IntelliWell")
+
+analysis = st.session_state.get(
+    "maintenance_analysis"
+)
+
+if analysis is None:
+
+    st.info(
+        "Analyze a maintenance report first to activate IntelliWell Copilot."
+    )
+
+else:
+
+    st.caption(
+        "Ask IntelliWell questions about the analyzed maintenance report."
+    )
+
+    # ------------------------------------------------------
+    # Display conversation history
+    # ------------------------------------------------------
+
+    for message in st.session_state.copilot_messages:
+
+        with st.chat_message(
+            message["role"]
+        ):
+
+            st.markdown(
+                message["content"]
+            )
+
+    # ------------------------------------------------------
+    # Chat input
+    # ------------------------------------------------------
+
+    user_question = st.chat_input(
+        "Ask IntelliWell about this maintenance report..."
+    )
+
+    # ------------------------------------------------------
+    # Process question
+    # ------------------------------------------------------
+
+    if user_question:
+
+        # Save user message
+        st.session_state.copilot_messages.append({
+            "role": "user",
+            "content": user_question
+        })
+
+        with st.chat_message("user"):
+
+            st.markdown(
+                user_question
+            )
+
+        try:
+
+            # ----------------------------------------------
+            # Call Flask Copilot API
+            # ----------------------------------------------
+
+            copilot_response = requests.post(
+                "http://127.0.0.1:5000/maintenance-copilot",
+                json={
+                    "question": user_question,
+                    "analysis": analysis
+                },
+                timeout=30
+            )
+
+            # ----------------------------------------------
+            # Successful response
+            # ----------------------------------------------
+
+            if copilot_response.status_code == 200:
+
+                data = copilot_response.json()
+
+                answer = data.get(
+                    "answer",
+                    "No response was generated."
+                )
+
+            else:
+
+                answer = (
+                    "IntelliWell could not answer the question. "
+                    f"API status: {copilot_response.status_code}"
+                )
+
+        except requests.exceptions.ConnectionError:
+
+            answer = (
+                "The IntelliWell backend is unavailable. "
+                "Make sure Flask is running."
+            )
+
+        except requests.exceptions.Timeout:
+
+            answer = (
+                "The IntelliWell Copilot request timed out."
+            )
+
+        except Exception as error:
+
+            answer = (
+                f"An unexpected Copilot error occurred: {error}"
+            )
+
+        # ----------------------------------------------
+        # Save assistant response
+        # ----------------------------------------------
+
+        st.session_state.copilot_messages.append({
+            "role": "assistant",
+            "content": answer
+        })
+
+        # ----------------------------------------------
+        # Display assistant response
+        # ----------------------------------------------
+
+        with st.chat_message("assistant"):
+
+            st.markdown(
+                answer
+            )
