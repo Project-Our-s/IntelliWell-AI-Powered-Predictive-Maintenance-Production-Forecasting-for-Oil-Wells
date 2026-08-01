@@ -25,6 +25,15 @@ IntelliWell can forecast future oil production, detect abnormal pressure conditi
 * Scikit-learn
 * Random Forest Regressor
 * Isolation Forest
+### Natural Language Processing
+* NLTK
+* TF-IDF / Text Vectorization
+* Tokenization
+* Stopword Removal
+* Lemmatization
+* Keyword Extraction
+* Maintenance Report Classification and Analysis
+
 ### Data Processing
 * Pandas
 * NumPy
@@ -418,33 +427,43 @@ IntelliWell combines several technologies into a unified analytics workflow:
 ```
 
 
- ## 📈 Future Forecasting
-
-The future forecasting engine simulates
-
-* Production decline
-* Pressure degradation
-* Operational variations
-
-for forecasting horizons ranging from 1 to 365 days. 
-
 ## 🚀 Features
-* AI-based Production Forecasting
+* AI-Based Production Forecasting
 * Pressure Anomaly Detection
+* Unsupervised Anomaly Detection
 * Predictive Maintenance
 * Well Health Assessment
 * Future Forecast Simulation
+* NLP Maintenance Report Analysis
+* Maintenance Issue Categorization
+* Maintenance Keyword Extraction
+* Maintenance Report Summarization
+* Maintenance Priority Identification
 * Business Intelligence Dashboards
 * Interactive AI Prediction Simulator
-* REST API Integration
-* SQL Database Integration
+* Flask REST API Integration
+* Streamlit Web Application
+* PostgreSQL Database Integration
 
-  ## 🔮 Future Enhancements
+## 🔮 Future Enhancements
+Potential future improvements include:
+
 * Real-time IoT sensor integration
 * Live production monitoring
+* Automated maintenance alerts
 * Cloud deployment
-* Automated alert notifications
 * Deep Learning forecasting models
-* Explainable AI (SHAP/LIME)
+* Transformer-based NLP models
+* Advanced maintenance report classification
+* Explainable AI using SHAP/LIME
 * Digital Twin integration
 * Mobile dashboard support
+* Real-time maintenance report processing
+* Automated integration of sensor anomalies with maintenance reports
+
+
+## 📌 Project Vision
+
+The goal of IntelliWell is to demonstrate how multiple data-driven technologies can be integrated into a single petroleum engineering decision-support platform.
+
+By combining Machine Learning for numerical well data, Natural Language Processing for maintenance reports, PostgreSQL for data management, Power BI for business intelligence, and Flask/Streamlit for interactive AI applications, IntelliWell provides a unified framework for production forecasting, anomaly detection, well-health monitoring, and predictive maintenance.
