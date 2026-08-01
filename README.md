@@ -49,7 +49,8 @@ IntelliWell/
 │   ├── Notebook 2 - Pressure Anomaly Detection.ipynb
 │   ├── Notebook 3 - Well Health Assessment.ipynb
 │   ├── Notebook 4 - Future Forecast Generator.ipynb
-│
+│   └── Notebook 5 - NLP Maintenance Report Analysis.ipynb
+|
 ├── backend/
 │   ├── app.py
 │   ├── routes.py
