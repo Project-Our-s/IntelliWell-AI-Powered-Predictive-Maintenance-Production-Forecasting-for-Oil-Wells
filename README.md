@@ -208,6 +208,17 @@ Forecasting horizons can range from:
 
 The generated results can be used by Power BI and the IntelliWell prediction interface for future well-condition analysis.
 
+## 🧠 NLP Maintenance Report Analysis
+
+IntelliWell also includes a Natural Language Processing (NLP) module for analyzing textual maintenance and engineering reports.
+
+The maintenance-report dataset contains:
+
+report_text
+category
+
+The report_text column contains textual maintenance observations, while category represents the known maintenance issue category.
+
 ## 📈 Power BI Dashboards
 ### 1. Executive Overview
 
