@@ -339,15 +339,18 @@ and instantly view
 
 ## 🌐 Web Application
 
-The Streamlit application provides an interactive AI interface for:
+The Streamlit application provides an interactive interface for accessing IntelliWell's analytics capabilities.
 
-* Uploading well datasets
-* Running production forecasting
-* Detecting pressure anomalies
-* Viewing well health reports
-* Exploring AI-generated predictions
+Users can:
 
-The backend is powered by Flask REST APIs.
+* Upload well datasets.
+* Run production forecasting.
+* Detect pressure anomalies.
+* View well health reports.
+* Explore future forecasts.
+* View AI-generated maintenance recommendations.
+
+The backend is powered by Flask REST APIs, which provide communication between the machine-learning components and the user-facing application.
 
 ### 🌐 Streamlit Web Application
 
