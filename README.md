@@ -82,6 +82,9 @@ IntelliWell/
 │   ├── production_model.pkl
 │   ├── pressure_model.pkl
 │   ├── pressure_scaler.pkl
+|   ├── pressure_feature.pkl
+|   ├── nlp_maintenance_classifier.pkl
+|   ├── nlp_tfidf_vectorizer.pkl
 │
 ├── outputs/
 │   ├── future_forecast.csv
